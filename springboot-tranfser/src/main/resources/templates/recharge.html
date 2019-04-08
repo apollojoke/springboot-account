@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>A demo of transfer</title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        html {
+            height: 80%;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        #container {
+            background-color: #2d3cbd;
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px;
+        }
+        .small_container {
+            background-color: #e5eecc;
+            border: 1px solid #000;
+            padding: 15px;
+        }
+        table {
+            border: 2px solid #000
+        }
+        td {
+            border: 1px solid #000
+        }
+    </style>
+</head>
+<body>
+<h1>充值小测试</h1>
+<section id="container">
+    <section id="leftPane" class="small_container">
+        <table id="accountsTable">
+            <thead>
+            <tr>
+                <th>帐号</th>
+                <th>余额</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="rightPane" class="small_container">
+        <form id="rechargeForm" th:action="@{/rechar}" method="post">
+            充值帐号：<input type="text" name="accountId" /><br>
+
+            充值金额：<input type="number" name="money" /><br>
+            <input type="submit" value="充值" /><input type="button" th:onclick="window.open('http://localhost:8080/index')" value="返回" />
+        </form>
+    </section>
+</section>
+</body>
+</html>
